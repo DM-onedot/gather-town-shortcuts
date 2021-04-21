@@ -10,15 +10,27 @@
 (function() {
     'use strict';
 
+    function getElements() {
+        let own = document.querySelectorAll('.GameVideo-self-video-menu-bottom button');
+        let group = document.querySelectorAll('.GameVideosContainer-videobar-content button');
+        if (own && own.length) {
+            return own;
+        }
+        if (group && group.length) {
+            return group;
+        }
+        return undefined;
+    }
+
     function toggleAudio() {
-        let elements = document.querySelectorAll('.GameVideo-self-video-menu-bottom > button');
+        let elements = getElements();
         if(elements && elements.length) {
             elements[0].click();
         }
     }
 
     function toggleVideo() {
-        let elements = document.querySelectorAll('.GameVideo-self-video-menu-bottom > button');
+        let elements = getElements();
         if(elements && elements.length) {
             elements[1].click();
         }
